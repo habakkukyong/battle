@@ -14,12 +14,20 @@ require 'selenium-webdriver'
 #   end
 # end
 
-feature 'Testing filling in names' do
-  scenario 'Will set a name perameter to a name entered into a form' do
+feature 'Testing play page' do
+  scenario 'Will set a name parameter to a name entered into a form' do
     visit('/')
-    fill_in :player_1_name, with: 'Bob'
-    fill_in :player_2_name, with: 'Rob'
+    fill_in :player_1_name, with: 'p1'
+    fill_in :player_2_name, with: 'p2'
     click_button('Submit')
-    expect(page).to have_content 'Bob vs. Rob'
+    expect(page).to have_content 'p1 vs. p2'
+  end
+
+  scenario 'when player names have been provided hitpoints shown' do
+    visit('/')
+    fill_in :player_1_name, with: 'p1'
+    fill_in :player_2_name, with: 'p2'
+    click_button('Submit')
+    expect(page).to have_content 'p2 hitpoints: 100'
   end
 end
