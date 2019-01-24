@@ -29,7 +29,15 @@ end
 feature 'Attack page' do
   scenario 'Confirms that player 2 has been attacked' do
     sign_in_and_play
-    click_link 'Attack'
+    click_button 'Attack'
     expect(page).to have_content 'p2 was attacked'
+  end
+end
+
+feature 'Attack page' do
+  scenario 'Attacked player hp decrease by 10' do
+    sign_in_and_play
+    click_button 'Attack'
+    expect(page).to have_content 'p2 hp 50'
   end
 end
