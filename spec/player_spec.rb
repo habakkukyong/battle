@@ -16,13 +16,6 @@ describe Player do
     end
   end
 
-  describe "#attack" do
-    it 'calls receive damage on the argument' do
-      expect(p2).to receive(:receive_damage)
-      p1.attack(p2)
-    end
-  end
-
   describe "#receive_damage" do
     it 'can be called with 1 parameter' do
       expect { p1.receive_damage }.to change{ p1.hp }.by -10
